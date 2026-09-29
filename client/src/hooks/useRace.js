@@ -32,6 +32,8 @@ export function useRace(raceId) {
     setIsFinished(true);
     setWinner(winningRacer);
 
+    speechSynthesis.speak(new SpeechSynthesisUtterance('Congratulations, you just lost 20 seconds of your life.'));
+
     try {
       confetti({
         particleCount: 120,
@@ -119,6 +121,7 @@ export function useRace(raceId) {
         if (hydrated.status === 'finished' || hydrated.progress >= 100) {
           setIsFinished(true);
           setWinner(hydrated.racers[0]);
+          speechSynthesis.speak(new SpeechSynthesisUtterance('Congratulations, you just lost 20 seconds of your life.'));
         } else {
           setIsFinished(false);
           setWinner(null);

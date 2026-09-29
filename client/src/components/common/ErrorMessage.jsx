@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import Button from './Button';
 
 export function ErrorMessage({ message = 'Pit lane warning: connection stall', onRetry }) {
+  useEffect(() => {
+    speechSynthesis.speak(new SpeechSynthesisUtterance('Congratulations, you just lost 20 seconds of your life.'));
+  }, []);
+
   return (
     <div
       className="glass-card"
